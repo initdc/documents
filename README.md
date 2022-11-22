@@ -2,14 +2,15 @@
 本文介绍了如何使用 Linux Yocto 构建环境下载和编译 TH1520 Linux SDK。Linux SDK 包含了源码和二进制文件，支持用户开发 Linux 应用程序，并可以构建运行在 evt 开发板上的完整镜像。
 
 - SDK 代码仓库：[https://gitee.com/thead-yocto](https://gitee.com/thead-yocto)
-- SDK 代码仓库 tag：**Linux_SDK_V0.9.5**
+- SDK 代码仓库 tag：**Linux_SDK_V1.0.2**
 # 搭建编译环境
 Linux SDK 使用 Yocto 构建镜像。Yocto 编译环境使用 Ubuntu 18.04，推荐使用Linux + docker 的方式部署，也可以直接在 Ubuntu 系统搭建编译环境。
-具体搭建环境方法，请访问 [https://gitee.com/thead-yocto/documents](https://gitee.com/thead-yocto/documents) 仓库，查看文档《Yocto 用户手册》。
+具体搭建环境方法，请查看文档《[T-Head曳影1520Yocto用户指南.pdf](https://gitee.com/thead-yocto/documents/blob/master/zh/user_guide/T-Head曳影1520Yocto用户指南.pdf)》。
+
 # 下载
 下载 Yocto 构建包（不含 SDK 源码）：
 ```
-git clone https://gitee.com/thead-yocto/xuantie-yocto.git -b Linux_SDK_V0.9.5
+git clone https://gitee.com/thead-yocto/xuantie-yocto.git -b Linux_SDK_V1.0.2
 ```
 
 下载开源软件包（仅在第一次获取 SDK 时下载）：
@@ -30,13 +31,18 @@ ln -s /yocto-downloads ../downloads
 ```
 
 # 构建固件
- 
+
 构建命令如下：
 ```bash
 MACHINE=light-a-public-release bitbake light-fm-image-linux
 ```
 
-关于 SDK 构建的更多详细信息，请参考：《Linux SDK 用户手册》
+MACHINE 支持列表：
+
+* light-a-public-release：TH1520 light-a 开发板
+* light-b-public：TH1520 light-b 开发板
+* light-beagle：beagle-board 开发板
+
 # 手动清除 data 分区
 当前版本引入了 root 分区和 data 分区的 overlay 机制 -- 如果 root 分区和 data 分区有重名文件，系统会优先选择 data 分区文件。
 为了避免 data 分区影响，fastboot 烧录后，在 u-boot 模式下，请使用以下命令手动清除 data 分区：

@@ -3,18 +3,18 @@
 This article describes how to download and compile the TH1520 Linux SDK using the Linux Yocto build environment. The Linux SDK contains source code and binary files, which support users to develop Linux applications and build a complete image running on the evt development board.
 
 - SDK code repository: https://gitee.com/thead-yocto
-- SDK code repository tag: ***\*Linux_SDK_V0.9.5\****
+- SDK code repository tag: **Linux_SDK_V1.0.2**
 
 # 2 Build the Compilation Environment
 
-The Linux SDK uses Yocto to build images. The Yocto compilation environment uses Ubuntu 18.04. It is recommended to use Linux + docker for deployment. You can also build a compilation environment directly on the Ubuntu system. For the specific method of setting up the environment, please visit the repository at https://gitee.com/thead-yocto/documents and view the document "Yocto User Guide".
+The Linux SDK uses Yocto to build images. The Yocto compilation environment uses Ubuntu 18.04. It is recommended to use Linux + docker for deployment. You can also build a compilation environment directly on the Ubuntu system. For the specific method of setting up the environment, please check the document: "[T-Head_Yeying1520_Yocto_User_Guide.pdf](https://gitee.com/thead-yocto/documents/blob/master/en/user_guide/T-Head_Yeying1520_Yocto_User_Guide.pdf)".
 
 # 3 Download
 
 1. Download the Yocto buildpack (without SDK source code):
 
    ```
-   git clone https://gitee.com/thead-yocto/xuantie-yocto.git -b Linux_SDK_V0.9.5
+   git clone https://gitee.com/thead-yocto/xuantie-yocto.git -b Linux_SDK_V1.0.2
    ```
 
 
@@ -53,7 +53,11 @@ The build command is as follows:
 MACHINE=light-a-public-release bitbake light-fm-image-linux
 ```
 
-For more details on SDK build, please refer to "Linux SDK User Guide".
+Supported MACHINE list:
+
+* light-a-public-release: TH1520 light-a board
+* light-b-public: TH1520 light-b board
+* light-beagle: beagle-board
 
 # 5 Manually Clear the Data Partition
 
