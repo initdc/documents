@@ -3,7 +3,7 @@
 This article describes how to download and compile the TH1520 Linux SDK using the Linux Yocto build environment. The Linux SDK contains source code and binary files, which support users to develop Linux applications and build a complete image running on the evt development board.
 
 - SDK code repository: https://gitee.com/thead-yocto
-- SDK code repository tag: **Linux_SDK_V1.0.2**
+- SDK code repository tag: **Linux_SDK_V1.0.3**
 
 # 2 Build the Compilation Environment
 
@@ -14,7 +14,7 @@ The Linux SDK uses Yocto to build images. The Yocto compilation environment uses
 1. Download the Yocto buildpack (without SDK source code):
 
    ```
-   git clone https://gitee.com/thead-yocto/xuantie-yocto.git -b Linux_SDK_V1.0.2
+   git clone https://gitee.com/thead-yocto/xuantie-yocto.git -b Linux_SDK_V1.0.3
    ```
 
 
